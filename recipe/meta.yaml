@@ -1,7 +1,6 @@
 {% set version = '0.3.0' %}
 
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-decido
@@ -14,8 +13,7 @@ source:
   sha256: fc1ad0f9e91e4a12f9c6f7d8be658a35b44d7a166936509f7373f8a27df9c393
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,7 +21,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -38,7 +38,6 @@ requirements:
 
   run:
     - r-base
-    - {{ native }}gcc-libs  # [win]
     - r-rcpp
 
 test:
