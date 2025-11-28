@@ -1,4 +1,4 @@
-{% set version = '0.3.0' %}
+{% set version = "0.4.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/decido_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/decido/decido_{{ version }}.tar.gz
-  sha256: fc1ad0f9e91e4a12f9c6f7d8be658a35b44d7a166936509f7373f8a27df9c393
+  sha256: a872d1088c90573b1e325091c1f4478f40c480616a8f51ca6f509184297f3610
 
 build:
-  number: 4
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -49,11 +49,8 @@ about:
   home: https://hypertidy.github.io/decido
 
   license: MIT
-  summary: Provides constrained triangulation of polygons. Ear cutting (or ear clipping) applies
-    constrained triangulation by successively 'cutting' triangles from a polygon defined
-    by path/s. Holes are supported by introducing a bridge segment between polygon paths.
-    This package wraps the 'header-only' library 'earcut.hpp' <https://github.com/mapbox/earcut.hpp.git>
-    which includes a reference to the method used by Held, M. (2001) <doi:10.1007/s00453-001-0028-4>.
+  summary: Provides constrained triangulation of polygons. Ear cutting (or ear clipping) applies constrained triangulation by successively 'cutting' triangles from a polygon defined by path/s. Holes are supported by introducing a bridge segment between polygon paths. This package wraps the 'header-only' library 'earcut.hpp'
+    <https://github.com/mapbox/earcut.hpp.git> which includes a reference to the method used by Held, M. (2001) <doi:10.1007/s00453-001-0028-4>.
 
   license_family: MIT
   license_file:
